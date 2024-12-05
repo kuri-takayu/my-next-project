@@ -1,0 +1,21 @@
+.button {
+    display: block;
+    padding: 20px 40px;
+    color: #fff;
+
+    border-radius: 8px;
+    width: 300px;
+    background: #000 url("/arrow-right.svg") no-repeat right 20px center;
+}
+
+.button:hover {
+    opacity: .8;
+}
+
+@media (max-width: 768px) {
+    .button {
+        padding: 15px 30px;
+
+        width: 100%;
+    }
+}
