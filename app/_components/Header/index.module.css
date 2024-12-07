@@ -17,6 +17,11 @@
     height: 24px;
     width: auto;
 }
+.items {
+    display: flex;
+    gap: 40px;
+    color: #fff;
+}
 
 @media (max-width: 640px) {
     .header {

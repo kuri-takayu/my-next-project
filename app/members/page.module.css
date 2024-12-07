@@ -1,0 +1,48 @@
+.text {
+    margin-bottom: 40px;
+
+    text-align: center;
+}
+
+.list {
+    display: flex;
+    gap: 40px;
+    align-items: flex-start;
+    margin-bottom: 80px;
+}
+
+.list:nth-child(even) {
+    flex-direction: row-reverse;
+}
+.image {
+    width: 240px;
+    height: auto;
+    border-radius: 8px;
+}
+
+.name {
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.position {
+    margin-bottom: 8px;
+}
+.profile {
+    display: flex;
+    gap: 24px;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 40px;
+
+    text-align: center;
+    border-top: 1px solid #ccc;
+}
+.message {
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.empty {
+    margin-bottom: 40px;
+}
