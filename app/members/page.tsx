@@ -1,45 +1,11 @@
 import Image from 'next/image';
+import { getMembersList } from '@/app/_libs/microcms';
 import styles from './page.module.css';
+import { MEMBERS_LIST_LIMIT } from '@/app/_constants';
 
-const data = {
-  contents: [
-    {
-      id: '1',
-      image: {
-        url: '/img-member1.jpg',
-        width: 240,
-        height: 240,
-      },
-      name: 'デイビッド・チャン',
-      position: 'CEO',
-      profile: 'デイビッド・チャンは、SIMPLE株式会社のCEOです。彼は、IT業界での豊富な経験を持ち、多くのプロジェクトを成功に導いてきました。デイビッド・チャンは、技術革新とビジネス成長の両面で重要な役割を果たしています。',
-    },
-    {
-      id: '2',
-      image: {
-        url: '/img-member2.jpg',
-        width: 240,
-        height: 240,
-      },
-      name: 'エミリー・サンダース',
-      position: 'COO',
-      profile: 'マイケル・リーは、SIMPLE株式会社のCTOです。彼は、システム開発とデータ分析の専門家で、複雑な問題を解決するための革新的なアプローチを提供しています。',
-    },
-    {
-      id: '3',
-      image: {
-        url: '/img-member3.jpg',
-        width: 240,
-        height: 240,
-      },
-      name: 'ジョン・ウィルソン',
-      position: 'CTO',
-      profile: 'マイケル・リーは、SIMPLE株式会社のCTOです。彼は、システム開発とデータ分析の専門家で、複雑な問題を解決するための革新的なアプローチを提供しています。',
-    },
-  ],
-}
 
-export default function Page() {
+export default async function Page() {
+  const data = await getMembersList({ limit: MEMBERS_LIST_LIMIT });
   return (
     <div className={styles.container}>
       {data.contents.length === 0 ? (
@@ -49,6 +15,7 @@ export default function Page() {
           {data.contents.map((member) => (
             <li key={member.id} className={styles.list}>
               <Image
+                className={styles.image}
                 src={member.image.url}
                 alt=""
                 width={member.image.width}
